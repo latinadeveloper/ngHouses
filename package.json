@@ -5,17 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ./app -a localhost -p 8080 -c-1"
+    "start": "http-server . -a localhost -p 8888 -c-1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/cdk": "^5.2.4",
-    "@angular/material": "^5.2.4",
+    "@angular/cdk": "^5.0.0",
+    "@angular/core": "4.0.0",
     "angular": "^1.6.9",
     "angular-animate": "^1.6.9",
     "angular-aria": "^1.6.9",
+    "angular-common": "^0.1.0",
     "angular-material": "^1.1.8",
-    "mdi": "^2.2.43"
+    "angular-messages": "^1.6.9",
+    "core-1": "^2.2.0",
+    "http-server": "^0.11.1",
+    "itdev-core": "^1.0.2",
+    "mdi": "^2.2.43",
+    "rxjs": "^5.5.8",
+    "tslib": "^1.9.0",
+    "zone.js": "^0.8.25"
   }
 }
