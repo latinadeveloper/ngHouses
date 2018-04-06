@@ -2,12 +2,39 @@
 <html>
 <head>
 <title>ngHouses</title>
+<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+<link  href="node_modules/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+
 </head>
 <body ng-app="ngHouses" ng-controller="housesCtrl">
 
+<md-toolbar color="primary">
+    <div class="md-toolbar-tools" >
+        <p>ngHouses</p>
+        <md-button>
+            <md-icon class="mdi mdi-plus-circle"></md-icon>
+            houses viewed
+        </md-button>
+    </div>
+</md-toolbar>
 
 
- <hi-moco></hi-moco>
+<md-content class="md-padding" layout="row" layout-wrap>
+<md-card flex="33">
+    <md-card-content>
+        <div class="house-info">
+            <h2 class="md-title">{{house.title}}</h2>
+            <h3>{{house.price}} </h3>
+            <p>{{house.street}}</p>
+            <p>{{house.comments}}</p>
+        </div>
+    
+    </md-card-content>
+</md-card>
+
+</md-content>
+
+
 
 
 <script src="node_modules/angular/angular.js"></script>

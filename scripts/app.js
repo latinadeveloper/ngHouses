@@ -1,9 +1,7 @@
-angular
-  .module("ngHouses", ["ngMaterial"])
-  .config(function($mdThemingProvider){
-    $mdThemingProvider.theme('default')
-      .primaryPalette('teal')
-      .accentPalette('pink')
+angular.module("ngHouses", ["ngMaterial"])
+  .config(function($mdThemingProvider) {
+     $mdThemingProvider.theme('default')
+    .primaryPalette('purple') 
 
   })
   
