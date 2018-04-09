@@ -21,25 +21,35 @@
 
 <md-content class="md-padding" layout="row" layout-wrap>
 <md-card ng-repeat="house in houses" flex="30">
+                <img  ng-src="{{house.image}}" alt="image of house"> 
+
     <md-card-content>
 
         <div class="house-info">
             <h2 class="md-title">{{house.title}}</h2>
-            <img  ng-src="{{house.image}}" alt="image of house"> 
             <h3>{{house.price | currency}} </h3>
             <p>{{house.street}}</p>
             <p>{{house.comments}}</p>
         </div>
         <div layout="row">
-                <md-button ng-click="showNotes = true" >notes</md-button>
-      <md-button ng-click="showNotes = false">hide notes</md-button></div>
+            <md-button ng-click="showNotes = true" >notes</md-button>
+            <md-button ng-click="showNotes = false">hide notes</md-button>
+         </div>
         
-        <div class="house-notes"   ng-show="showNotes" >
-           <p> <md-icon  class="mdi mdi-emoticon-happy" >{{house.pro}}</md-icon> </p>
-            <p><md-icon  class="mdi mdi-emoticon-sad" >{{house.con}}</md-icon></p>
+        <div class="house-notes"  > 
+            <div>
+                 <md-icon class="mdi mdi-emoticon-happy"></md-icon>
+                 {{house.pro}}
+            </div>
+            <div>
+                <md-icon class="mdi mdi-emoticon-sad"></md-icon>
+            {{house.con}}
+            </div>
         </div>
-  
 
+<!--ng-show="showNotes" >
+class="mdi mdi-emoticon-happy"-->
+<!--class="mdi mdi-emoticon-sad"-->
     </md-card-content>
 </md-card>
 
