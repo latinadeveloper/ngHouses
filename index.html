@@ -21,7 +21,7 @@
 
 <md-content class="md-padding" layout="row" layout-wrap>
 <md-card ng-repeat="house in houses" flex="30">
-                <img  ng-src="{{house.image}}" alt="image of house"> 
+                <img  ng-src="{{house.image}}" alt="image of house">
 
     <md-card-content>
 
@@ -32,11 +32,28 @@
             <p>{{house.comments}}</p>
         </div>
         <div layout="row">
-            <md-button ng-click="showNotes = true" >notes</md-button>
-            <md-button ng-click="showNotes = false">hide notes</md-button>
+            <md-button 
+                ng-click="showNotes = true" 
+                ng-show="!showNotes" >
+                notes
+             </md-button>
+            <md-button ng-click="showNotes = false"
+                ng-show="showNotes">
+                hide notes
+            </md-button>
+            <md-button 
+                ng-click="showAdmin = true"
+                ng-show="!showAdmin" >
+                admin
+            </md-button>
+            <md-button 
+                ng-click="showAdmin = false"
+                ng-show="showAdmin">
+                close
+            </md-button>
          </div>
-        
-        <div class="house-notes"  > 
+
+        <div class="house-notes" ng-show="showNotes" >
             <div>
                  <md-icon class="mdi mdi-emoticon-happy"></md-icon>
                  {{house.pro}}
@@ -44,6 +61,15 @@
             <div>
                 <md-icon class="mdi mdi-emoticon-sad"></md-icon>
             {{house.con}}
+            </div>
+            
+        </div>
+
+        <div class="house-admin" ng-if="showAdmin">
+            <h3>Admin</h3>
+            <div layout="row">
+                <md-button class="md-primary">Edit</md-button>
+                <md-button class="md-warn ">Delete</md-button>
             </div>
         </div>
 
@@ -67,5 +93,3 @@ class="mdi mdi-emoticon-happy"-->
 <script src="components/houses.ctr.js"></script>
 </body>
 </html>
-
-
