@@ -11,17 +11,67 @@
 <md-toolbar color="primary">
     <div class="md-toolbar-tools" >
         <p>ngHouses</p>
-        <md-button>
+
+        <md-button ng-click="openSidebar()">
             <md-icon class="mdi mdi-plus-circle"></md-icon>
-            houses viewed
+            new house
         </md-button>
     </div>
 </md-toolbar>
 
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <!--md-is-locked-open="true"-->
+
     <md-toolbar>
         <h1 class="md-toolbar-tools">add house </h1>
     </md-toolbar>
+
+    <md-content layout-padding>
+        <form>
+            <md-input-container>
+                <label for="title">title</label>
+                <input type="text" id="title" 
+                ng-model="house.title"
+                md-autofocus>
+            </md-input-container>
+
+            <md-input-container>
+                <label for="price">price</label>
+                <input type="text" id="price"
+                ng-model="house.price">
+            </md-input-container>
+
+            <md-input-container>
+                <label for="description">description</label>
+                <input type="text" id="description"
+                ng-model="house.description">
+            </md-input-container>
+
+            <md-input-container>
+                <label for="image">link</label>
+                <input type="text" id="image"
+                ng-model="house.image">
+            </md-input-container>
+
+            <md-button class="md-primary">
+            save
+            </md-button>
+
+            <md-button class="md-primary">
+            save edit
+            </md-button>
+
+            <md-button class="md-warn" ng-click="closeSidebar()">
+            cancel
+            </md-button>
+
+
+            <pre></pre>
+
+        </form>
+
+    </md-content>
+
 
 </md-sidenav>
 
