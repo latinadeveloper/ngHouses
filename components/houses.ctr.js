@@ -16,5 +16,9 @@
                 $mdSidenav('left').close();
            }
            
+
+            $scope.saveHouse = function(house){
+                $scope.houses.push(house);
+            }
         });
 }) ();
