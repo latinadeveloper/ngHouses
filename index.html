@@ -53,11 +53,11 @@
                 ng-model="house.image">
             </md-input-container>
 
-            <md-button ng-click="saveHouse(house)" class="md-primary">
+            <md-button  ng-click="saveHouse(house)" ng-if="!editing" class="md-primary">
             save
             </md-button>
 
-            <md-button class="md-primary">
+            <md-button ng-click="saveHouse(house)" class="md-primary" ng-if="editing" >
             save edit
             </md-button>
 
@@ -65,17 +65,11 @@
             cancel
             </md-button>
 
-
             <pre>{{ house | json }}</pre>
 
         </form>
-
     </md-content>
-
-
 </md-sidenav>
-
-
 
 
 
@@ -89,7 +83,7 @@
             <h2 class="md-title">{{house.title}}</h2>
             <h3>{{house.price | currency}} </h3>
             <p>{{house.street}}</p>
-            <p>{{house.comments}}</p>
+            <p>{{house.description}}</p>
         </div>
         <div layout="row">
             <md-button 
@@ -128,8 +122,8 @@
         <div class="house-admin" ng-if="showAdmin">
             <h3>Admin</h3>
             <div layout="row">
-                <md-button class="md-primary">Edit</md-button>
-                <md-button class="md-warn ">Delete</md-button>
+                <md-button ng-click="editHouse(house)" class="md-primary">Edit</md-button>
+                <md-button ng-click="deleteHouse($event, house)" class="md-warn">Delete</md-button>
             </div>
         </div>
 
