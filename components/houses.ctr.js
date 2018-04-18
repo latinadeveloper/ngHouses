@@ -47,20 +47,15 @@
 
             $scope.deleteHouse = function(event, house){
                 var confirm = $mdDialog.confirm()
-                // .title(`are you sure you want to delte {{house.title}}`)
                     .title('are you sure you want to delte ' + house.title)
                     .ok('yes')
                     .cancel('no')
                     .targetEvent(event);
-                $mdDialog.show(confirm).then(funtion() {
-                    
-                })
-
-                var index = $scope.houses.indexOf(house);
-                if(confirm){
-
-                $scope.houses.splice(index,1);
-                }
+                $mdDialog.show(confirm).then(function() {
+                    var index = $scope.houses.indexOf(house);
+                    $scope.houses.splice(index,1);
+                  }, function(){
+                });
             }
 
             function showToast(message) {
