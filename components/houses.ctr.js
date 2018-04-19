@@ -13,7 +13,10 @@
         //    var personSeller = { 
         //        name: 'mimis'
                
+        
         //    }
+
+           $scope.descriptions = getHouses($scope.houses);
 
            $scope.openSidebar = function(){
                 $mdSidenav('left').open();
@@ -27,7 +30,7 @@
                 if(house){
                 // house.personSeller = contact;   //render part of profile
                 $scope.houses.push(house);
-                $scope.classified = {} ;
+                $scope.house = {} ;
                 $scope.closeSidebar();   
                 showToast('house saved');
             }
@@ -67,6 +70,18 @@
                     );
                 };
             }
+
+            function getHouses(descriptions){
+                var descriptions = [];
+                angular.forEach(descriptions, function(item){
+                    angular.forEach(item.descriptions, function(description){
+                        descriptions.push(description);
+                    })
+                });
+
+                return _.unique(descriptions);
+            }
+
 
         });
 }) ();

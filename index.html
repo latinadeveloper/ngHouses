@@ -31,7 +31,16 @@
         <input type="text" ng-model="housesFilter">
     </md-input-container>
 
+    <md-input-container>
+        <label>category</label>
+        <md-select>
+            <md-option ng-repeat="description in description" value="{{ description }}"></md-option>
+            {{ description }}
+        </md-select>
+    </md-input-container>
 </div>
+
+
 
 
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
@@ -89,7 +98,7 @@
 
 
 <md-content class="md-padding" layout="row" layout-wrap>
-<md-card ng-repeat="house in houses" flex="30">
+<md-card ng-repeat="house in houses | filter: housesFilter" flex="30">
                 <img  ng-src="{{house.image}}" alt="image of house">
 
     <md-card-content>
@@ -161,5 +170,6 @@ class="mdi mdi-emoticon-happy"-->
 <script src="scripts/app.js"></script>
 <script src="components/houses.ctr.js"></script>
 <script src="components/houses.fac.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js"></script>
 </body>
 </html>
