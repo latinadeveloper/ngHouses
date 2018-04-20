@@ -6,18 +6,15 @@
            
            housesFactory.getHouses().then(function(houses){
             $scope.houses = houses.data;
+            $scope.descriptions = getKeywords($scope.houses);
             // console.log(data);
            });   // if over server, you put the url here
 
            // Place holder for fake data profile
-        //    var personSeller = { 
-        //        name: 'mimis'
-               
-        
-        //    }
-
-           $scope.descriptions = getHouses($scope.houses);
-
+            //var personSeller = { 
+            //    name: 'mimis'
+            //}
+            
            $scope.openSidebar = function(){
                 $mdSidenav('left').open();
            }
@@ -71,17 +68,11 @@
                 };
             }
 
-            function getHouses(descriptions){
-                var descriptions = [];
-                angular.forEach(descriptions, function(item){
-                    angular.forEach(item.descriptions, function(description){
-                        descriptions.push(description);
-                    })
-                });
-
-                return _.unique(descriptions);
+            function getKeywords(houses){
+                return _(houses).flatMap(function(house) {
+                    return house.description.split(' ')
+                }).uniq().pull([" "]).value();
             }
-
 
         });
 }) ();

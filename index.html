@@ -33,9 +33,10 @@
 
     <md-input-container>
         <label>category</label>
-        <md-select>
-            <md-option ng-repeat="description in description" value="{{ description }}"></md-option>
+        <md-select ng-model="descriptionFilter">
+            <md-option ng-repeat="description in descriptions" value="{{ description }}">
             {{ description }}
+            </md-option>
         </md-select>
     </md-input-container>
 </div>
