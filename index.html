@@ -3,6 +3,7 @@
 <head>
 <title>ngHouses</title>
 <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+<link rel="stylesheet" href="css/style.css">
 <link  href="node_modules/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
 
 </head>
@@ -25,7 +26,7 @@
 </md-toolbar>
 
 
-<div class="filters" layout="row" layout-align="center center" ng-show="showFilters" >
+<div class="filters" layout="row" layout-align="center start" ng-show="showFilters" >
     <md-input-container>
         <label>search here</label>
         <input type="text" ng-model="housesFilter">
@@ -39,8 +40,15 @@
             </md-option>
         </md-select>
     </md-input-container>
-</div>
 
+    <md-input-container>
+        <md-button ng-class="md-warn"
+            ng-click="descriptionFilter = ''; description =''; housesFilter='' ">
+            clear
+        </md-button>
+    </md-input-container>
+
+</div>
 
 
 
@@ -99,7 +107,11 @@
 
 
 <md-content class="md-padding" layout="row" layout-wrap>
-<md-card ng-repeat="house in houses | filter: housesFilter" flex="30">
+<md-card ng-repeat="house in houses | 
+                    filter: housesFilter | 
+                    filter: description" 
+                    flex="30"
+                    class="filtering">
                 <img  ng-src="{{house.image}}" alt="image of house">
 
     <md-card-content>
@@ -172,5 +184,8 @@ class="mdi mdi-emoticon-happy"-->
 <script src="components/houses.ctr.js"></script>
 <script src="components/houses.fac.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js"></script>
+
+<script src="js/angular-ui-router.min.js"></script>
+
 </body>
 </html>
