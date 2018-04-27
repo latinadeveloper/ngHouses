@@ -1,0 +1,21 @@
+button .material-icons{
+    margin-top: 7px;
+}
+
+.filtering.ng-enter, .filtering.ng-move {
+    transition: .5s all;
+    opacity: 0;
+}
+
+.filtering.ng-enter.ng-enter-active, .filtering.ng-move.ng-move-active {
+    opacity: 1;
+}
+
+.filtering.ng-leave {
+    animation: .5s fade_filtering;
+}
+
+@keyframes fade_filtering{
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
