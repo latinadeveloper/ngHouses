@@ -1,15 +1,16 @@
 angular.module("ngHouses", ["ngMaterial", "ui.router"])
-  .config(function($mdThemingProvider) {
+  .config(function($mdThemingProvider, $stateProvider) {
      $mdThemingProvider.theme('default')
-    .primaryPalette('purple') 
+    .primaryPalette('purple'); 
 
-  })
+    $stateProvider
+        .state( 'stateone', {
+        url: '/stateone',
+        template: '<h1>I see one 1<h1>'
+        });
+
+  });
+
   
   
   
-   .directive('hiMoco', function(){
-       return{
-        //    restrict: 'E',
-           template: "motwo catttt"
-       }
-   });
