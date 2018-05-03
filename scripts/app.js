@@ -7,6 +7,10 @@ angular.module("ngHouses", ["ngMaterial", "ui.router"])
         .state( 'stateone', {
         url: '/stateone',
         template: '<h1>I see one 1<h1>'
+      })
+        .state( 'statetwo', {
+        url: '/statetwo',
+        template: 'two'
         });
 
   });
