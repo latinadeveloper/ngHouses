@@ -10,11 +10,16 @@ angular.module("ngHouses", ["ngMaterial", "ui.router"])
       })
         .state( 'statetwo', {
         url: '/statetwo',
-        template: 'two'
-        });
+        template: 'Me 2 <div> <md-button ui-sref="two.more"> go to nested </md-button><ui-view></ui-view> </div>'
+      })
+       .state('statetwo.more', {
+        url: '/more',  
+        template: ' I am in the inside/deep end '
+
+       });
 
   });
 
   
-  
+  // the line 15 is not renedering as a nested state
   
