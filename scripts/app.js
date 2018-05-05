@@ -6,7 +6,8 @@ angular.module("ngHouses", ["ngMaterial", "ui.router"])
     $stateProvider
         .state( 'stateone', {
         url: '/stateone',
-        template: '<h1>I see one 1<h1>'
+        template: '<h1>{{ stateone.message }}</h1>',
+        controller: 'stateOneCtrl as stateone'
       })
         .state( 'statetwo', {
         url: '/statetwo',
@@ -18,8 +19,15 @@ angular.module("ngHouses", ["ngMaterial", "ui.router"])
 
        });
 
-  });
+  })
 
+
+.controller('stateOneCtrl', function($scope){
+  var vm = this;
+  vm.message = "im from state one";
+});
   
   // the line 15 is not renedering as a nested state
+  
+
   
